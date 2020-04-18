@@ -13,4 +13,11 @@ dependencies {
     //rx android
     implementation "io.reactivex.rxjava2:rxandroid:$rxandoirdVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+
+    //junit
+    testImplementation 'junit:junit:4.12'
+
+    //mockito
+    testImplementation 'org.mockito:mockito-core:2.28.0'
+    testImplementation 'org.mockito:mockito-inline:2.28.0'
 }
