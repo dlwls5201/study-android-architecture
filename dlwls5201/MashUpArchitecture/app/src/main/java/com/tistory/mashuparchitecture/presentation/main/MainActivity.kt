@@ -1,11 +1,11 @@
 package com.tistory.mashuparchitecture.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tistory.mashuparchitecture.R
 import com.tistory.mashuparchitecture.presentation.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnActivityMainSearch.setOnClickListener {
-            startActivity<SearchActivity>()
+            startActivity(Intent(this, SearchActivity::class.java))
         }
 
     }
