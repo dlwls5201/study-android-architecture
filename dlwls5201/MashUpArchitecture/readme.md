@@ -1,0 +1,1 @@
+https://github.com/bufferapp/android-clean-architecture-boilerplate
