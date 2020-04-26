@@ -7,7 +7,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-@BindingAdapter("bind:setImageUrl")
+@BindingAdapter("setImageUrl")
 fun ImageView.setImageUrl(url: String?) {
     Glide.with(context)
         .load(url)
@@ -16,7 +16,7 @@ fun ImageView.setImageUrl(url: String?) {
         .into(this)
 }
 
-@BindingAdapter("bind:setCircleImageUrl")
+@BindingAdapter("setCircleImageUrl")
 fun ImageView.setCircleImageUrl(url: String?) {
 
     val options = RequestOptions().apply {

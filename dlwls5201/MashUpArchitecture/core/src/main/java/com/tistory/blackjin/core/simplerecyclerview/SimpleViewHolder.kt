@@ -9,15 +9,15 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class SimpleViewHolder<B : ViewDataBinding>(
-    @LayoutRes layoutRes: Int,
     parent: ViewGroup?,
+    @LayoutRes layoutRes: Int,
     private val bindingVariableId: Int?
 ) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent?.context)
         .inflate(layoutRes, parent, false)
 ) {
 
-    val binding: B = DataBindingUtil.bind(itemView)!!
+    protected val binding: B = DataBindingUtil.bind(itemView)!!
 
     fun bind(item: Any?) {
         try {

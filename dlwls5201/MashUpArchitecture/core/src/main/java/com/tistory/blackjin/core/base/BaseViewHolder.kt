@@ -8,8 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseViewHolder<out B : ViewDataBinding, in D>(parent: ViewGroup, @LayoutRes layoutRes: Int) :
-    RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(layoutRes, parent, false)) {
+abstract class BaseViewHolder<out B : ViewDataBinding, in D>(
+    parent: ViewGroup,
+    @LayoutRes layoutRes: Int
+) : RecyclerView.ViewHolder(
+    LayoutInflater.from(parent.context)
+        .inflate(layoutRes, parent, false)
+) {
 
     protected val context: Context = itemView.context
     protected val binding: B = DataBindingUtil.bind(itemView)!!

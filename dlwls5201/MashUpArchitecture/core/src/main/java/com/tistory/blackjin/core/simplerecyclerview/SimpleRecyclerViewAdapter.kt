@@ -26,8 +26,8 @@ abstract class SimpleRecyclerViewAdapter<ITEM : Any, B : ViewDataBinding>(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         object : SimpleViewHolder<B>(
-            layoutRes = layoutRes,
             parent = parent,
+            layoutRes = layoutRes,
             bindingVariableId = bindingVariableId
         ) {}
 
