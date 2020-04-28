@@ -32,8 +32,8 @@ fun Context.longToast(message: Int): Toast = Toast
     }
 
 fun Context.alert(
-    message: CharSequence? = null,
     title: CharSequence? = null,
+    message: CharSequence? = null,
     init: (AlertBuilder<DialogInterface>.() -> Unit)? = null
 ): AlertBuilder<AlertDialog> {
     return AndroidAlertBuilder(this).apply {

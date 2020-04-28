@@ -30,7 +30,7 @@ abstract class LiveRecyclerViewAdapter<VM : Any>(
     protected val viewModelId: Int
         get() = BR.model
 
-    final override fun onCreateViewHolder(
+    override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): LiveRecyclerViewHolder<VM> {

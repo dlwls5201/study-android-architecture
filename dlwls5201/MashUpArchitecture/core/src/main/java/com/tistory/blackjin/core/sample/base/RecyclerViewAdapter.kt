@@ -1,4 +1,4 @@
-package com.tistory.blackjin.core.sample.fragment
+package com.tistory.blackjin.core.sample.base
 
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding

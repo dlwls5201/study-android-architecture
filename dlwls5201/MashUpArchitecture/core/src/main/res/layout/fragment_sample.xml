@@ -7,6 +7,18 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btn_alert"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="@string/show_alert" />
+
+        <Button
+            android:id="@+id/btn_single_click"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="@string/single_click" />
+
+        <Button
             android:id="@+id/btn_recycler_view"
             android:text="@string/recycler_view_sample"
             android:layout_width="match_parent"

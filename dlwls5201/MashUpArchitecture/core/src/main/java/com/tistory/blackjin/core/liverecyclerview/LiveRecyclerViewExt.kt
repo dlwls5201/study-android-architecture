@@ -1,5 +1,6 @@
 package com.tistory.blackjin.core.liverecyclerview
 
+import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,7 +32,8 @@ fun <VM : DiffComparable<VM>> RecyclerView.bindDiffComparable(
 fun <VM : Any> RecyclerView.bindData(
     itemList: List<VM>?,
     layoutId: Int,
-    lifecycleOwner: LifecycleOwner?
+    lifecycleOwner: LifecycleOwner?,
+    listener: ((item: VM) -> Unit)? = null
 ) {
     if (itemList == null) return
 
@@ -43,6 +45,18 @@ fun <VM : Any> RecyclerView.bindData(
     val adapter = adapter as? LiveRecyclerViewAdapter<VM>
         ?: (object : LiveRecyclerViewAdapter<VM>(lifecycleOwner) {
             override fun getItemLayoutId(position: Int) = layoutId
+
+            override fun onCreateViewHolder(
+                parent: ViewGroup,
+                viewType: Int
+            ): LiveRecyclerViewHolder<VM> {
+                return super.onCreateViewHolder(parent, viewType).apply {
+                    itemView.setOnClickListener {
+                        listener?.invoke(getItem(adapterPosition))
+                    }
+                }
+            }
+
         }.also { adapter = it })
 
     adapter.submitList(itemList)

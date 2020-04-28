@@ -1,4 +1,4 @@
-package com.tistory.blackjin.core.sample.fragment
+package com.tistory.blackjin.core.sample.base
 
 import android.os.Bundle
 import android.view.View
@@ -8,18 +8,19 @@ import com.tistory.blackjin.core.databinding.FragmentRecyclerViewBinding
 import com.tistory.blackjin.core.ext.toast
 import com.tistory.blackjin.core.sample.data.SampleData
 
-class LiveRecyclerViewFragment : BaseFragment<FragmentRecyclerViewBinding>(R.layout.fragment_recycler_view) {
+class RecyclerViewFragment : BaseFragment<FragmentRecyclerViewBinding>(R.layout.fragment_recycler_view) {
 
     companion object {
 
-        fun newInstance() =  LiveRecyclerViewFragment()
+        fun newInstance() = RecyclerViewFragment()
     }
 
     private val recyclerViewAdapter by lazy {
         RecyclerViewAdapter().apply {
-            onItemClickListener = object : RecyclerViewAdapter.OnItemClickListener {
+            onItemClickListener = object :
+                RecyclerViewAdapter.OnItemClickListener {
                 override fun onItemClick(data: String) {
-                    this@LiveRecyclerViewFragment.requireContext().toast(data)
+                    this@RecyclerViewFragment.requireContext().toast(data)
                 }
             }
         }
@@ -32,6 +33,6 @@ class LiveRecyclerViewFragment : BaseFragment<FragmentRecyclerViewBinding>(R.lay
             adapter = recyclerViewAdapter
         }
 
-        recyclerViewAdapter.replaceAll(SampleData.get("LiveRecyclerViewFragment"))
+        recyclerViewAdapter.replaceAll(SampleData.get("RecyclerViewFragment"))
     }
 }

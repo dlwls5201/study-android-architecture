@@ -4,9 +4,9 @@ import android.os.Bundle
 import com.tistory.blackjin.core.R
 import com.tistory.blackjin.core.base.BaseActivity
 import com.tistory.blackjin.core.databinding.ActivitySampleBinding
-import com.tistory.blackjin.core.sample.fragment.LiveRecyclerViewFragment
-import com.tistory.blackjin.core.sample.fragment.RecyclerViewFragment
-import com.tistory.blackjin.core.sample.fragment.SimpleRecyclerViewFragment
+import com.tistory.blackjin.core.sample.base.RecyclerViewFragment
+import com.tistory.blackjin.core.sample.live.LiveRecyclerViewFragment
+import com.tistory.blackjin.core.sample.simple.SimpleRecyclerViewFragment
 
 class SampleActivity : BaseActivity<ActivitySampleBinding>(R.layout.activity_sample) {
 

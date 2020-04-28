@@ -7,32 +7,45 @@ object Logger {
 
     private const val TAG = "BlackJin"
 
-    fun d(msg: String) {
+    // debug
+    fun d(msg: String?) {
         if (isDebug()) {
             Log.d(TAG, buildLogMsg(msg))
         }
     }
-    fun i(msg: String) {
+
+    //info
+    fun i(msg: String?) {
         if (isDebug()) {
             Log.i(TAG, buildLogMsg(msg))
         }
     }
 
-    fun w(msg: String) {
+    //warn
+    fun w(msg: String?) {
         if (isDebug()) {
             Log.w(TAG, buildLogMsg(msg))
         }
     }
 
-    fun e(msg: String) {
+    //error
+    fun e(msg: String?) {
         if (isDebug()) {
             Log.e(TAG, buildLogMsg(msg))
         }
     }
 
-    fun v(msg: String) {
+    //verbose
+    fun v(msg: String?) {
         if (isDebug()) {
             Log.v(TAG, buildLogMsg(msg))
+        }
+    }
+
+    //what a terrible failure
+    fun wtf(msg: String?) {
+        if (isDebug()) {
+            Log.wtf(TAG, buildLogMsg(msg))
         }
     }
 

@@ -4,10 +4,11 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.tistory.blackjin.core.BR
 
 abstract class SimpleRecyclerViewAdapter<ITEM : Any, B : ViewDataBinding>(
     @LayoutRes private val layoutRes: Int,
-    private val bindingVariableId: Int? = null
+    private val bindingVariableId: Int? = BR.model
 ) : RecyclerView.Adapter<SimpleViewHolder<B>>() {
 
     private val items = mutableListOf<ITEM>()
