@@ -1,6 +1,5 @@
 package com.tistory.mashupatchitecture
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.tistory.blackjin.domain.entity.RepoEntity
 import com.tistory.blackjin.domain.entity.UserEntity
 import com.tistory.blackjin.domain.interactor.usecases.GetRepoUsecase
@@ -9,7 +8,6 @@ import com.tistory.blackjin.domain.repository.UserRepository
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
@@ -21,10 +19,6 @@ class GetRepoUsecaseTest {
     //@Rule
     //@JvmField
     //val testSchedulerRule = RxSchedulerRule()
-
-    // Executes each task synchronously using Architecture Components.
-    @get:Rule
-    val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Mock
     private lateinit var userRepository: UserRepository
@@ -65,5 +59,4 @@ class GetRepoUsecaseTest {
 
         Assert.assertEquals(Pair(user, repo), result)
     }
-
 }
