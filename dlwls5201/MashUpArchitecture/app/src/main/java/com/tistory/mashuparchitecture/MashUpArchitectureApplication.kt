@@ -1,8 +1,8 @@
 package com.tistory.mashuparchitecture
 
 import android.app.Application
+import com.tistory.blackjin.data.di.mockRepositoryModule
 import com.tistory.blackjin.data.di.networkModule
-import com.tistory.blackjin.data.di.repositoryModule
 import com.tistory.blackjin.domain.di.usecaseModule
 import com.tistory.mashuparchitecture.di.appModule
 import org.koin.android.ext.koin.androidContext
@@ -33,7 +33,9 @@ class MashUpArchitectureApplication : Application() {
             modules(
                 listOf(
                     appModule,
-                    networkModule, repositoryModule,
+                    networkModule,
+                    //repositoryModule,
+                    mockRepositoryModule,
                     usecaseModule
                 )
             )

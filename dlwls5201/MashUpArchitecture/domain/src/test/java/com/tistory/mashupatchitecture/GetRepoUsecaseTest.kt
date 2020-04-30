@@ -8,6 +8,7 @@ import com.tistory.blackjin.domain.repository.UserRepository
 import io.reactivex.Single
 import org.junit.Assert
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
@@ -16,9 +17,9 @@ import java.util.*
 
 class GetRepoUsecaseTest {
 
-    //@Rule
-    //@JvmField
-    //val testSchedulerRule = RxSchedulerRule()
+    @Rule
+    @JvmField
+    val testSchedulerRule = RxSchedulerRule()
 
     @Mock
     private lateinit var userRepository: UserRepository
