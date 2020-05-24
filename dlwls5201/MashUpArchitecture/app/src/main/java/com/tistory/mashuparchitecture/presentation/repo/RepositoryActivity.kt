@@ -9,7 +9,8 @@ import com.bumptech.glide.Glide
 import com.tistory.blackjin.domain.error.ErrorEntity
 import com.tistory.blackjin.domain.interactor.usecases.GetRepoUsecase
 import com.tistory.mashuparchitecture.R
-import com.tistory.mashuparchitecture.model.mapToPresentation
+import com.tistory.mashuparchitecture.mapper.RepoItemMapper
+import com.tistory.mashuparchitecture.mapper.UserItemMapper
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_repository.*
 import org.koin.android.ext.android.inject
@@ -19,6 +20,10 @@ class RepositoryActivity : AppCompatActivity() {
     private val compositeDisposable = CompositeDisposable()
 
     private val getRepoUsecase: GetRepoUsecase by inject()
+
+    private val userItemMapper: UserItemMapper by inject()
+
+    private val repoItemMapper: RepoItemMapper by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +54,8 @@ class RepositoryActivity : AppCompatActivity() {
             }
             .subscribe({
 
-                val user = it.first.mapToPresentation(resources)
-                val repo = it.second.mapToPresentation(resources)
+                val user = userItemMapper.mapToView(it.first)
+                val repo = repoItemMapper.mapToView(it.second)
 
                 Glide.with(this@RepositoryActivity)
                     .load(user.profileUrl)

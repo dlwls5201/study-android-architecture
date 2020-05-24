@@ -8,5 +8,3 @@ data class RepoSearchResponse(
     @SerializedName("items")
     val items: List<Repo>
 )
-
-fun List<Repo>.mapToDomain() = map { it.mapToDomain() }

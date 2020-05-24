@@ -1,5 +1,7 @@
 package com.tistory.blackjin.data.di
 
+import com.tistory.blackjin.data.mapper.RepoEntityMapper
+import com.tistory.blackjin.data.mapper.UserEntityMapper
 import com.tistory.blackjin.data.repositoryimpl.RepoRepositoryImpl
 import com.tistory.blackjin.data.repositoryimpl.UserRepositoryImpl
 import com.tistory.blackjin.data.source.remote.RepoApi
@@ -13,11 +15,11 @@ val repositoryModule = module {
 
     // repository
     single<RepoRepository> {
-        RepoRepositoryImpl(get())
+        RepoRepositoryImpl(get(), get())
     }
 
     single<UserRepository> {
-        UserRepositoryImpl(get())
+        UserRepositoryImpl(get(), get())
     }
 
     // local
@@ -25,4 +27,7 @@ val repositoryModule = module {
     // remote
     single { get<Retrofit>().create(RepoApi::class.java) }
     single { get<Retrofit>().create(UserApi::class.java) }
+
+    single { RepoEntityMapper() }
+    single { UserEntityMapper() }
 }

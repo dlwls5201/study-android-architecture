@@ -1,7 +1,6 @@
 package com.tistory.blackjin.data.model
 
 import com.google.gson.annotations.SerializedName
-import com.tistory.blackjin.domain.entity.RepoEntity
 import java.util.*
 
 data class Repo(
@@ -27,18 +26,3 @@ data class Repo(
         val avatarUrl: String
     )
 }
-
-fun Repo.mapToDomain() = RepoEntity(
-    name,
-    owner.mapToDomain(),
-    description,
-    language,
-    updatedAt,
-    stars
-)
-
-fun Repo.OwnerModel.mapToDomain() = RepoEntity.OwnerEntity(
-    login,
-    avatarUrl
-)
-
