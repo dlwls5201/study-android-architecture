@@ -2,6 +2,8 @@ package com.tistory.blackjin.data.mockrepositoryImpl
 
 import com.tistory.blackjin.domain.entity.RepoEntity
 import com.tistory.blackjin.domain.repository.RepoRepository
+import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.Single
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -39,5 +41,32 @@ class MpckRepoRepositoryImpl : RepoRepository {
                 Date(), 100
             )
         )
+    }
+
+    override fun getRecentRepos(): Flowable<List<RepoEntity>> {
+        return Flowable.just(
+            listOf(
+                RepoEntity(
+                    "MashupArchitecture1",
+                    RepoEntity.OwnerEntity("blackJin", ""),
+                    "welcome house",
+                    "kotlin",
+                    Date(), 100
+                ),
+                RepoEntity(
+                    "MashupArchitecture2",
+                    RepoEntity.OwnerEntity("blackJin", ""),
+                    "welcome house",
+                    "java",
+                    Date(), 1000
+                )
+            )
+        ).delay(1000, TimeUnit.MILLISECONDS)
+    }
+
+    override fun insertRecentRepo(repoEntity: RepoEntity): Completable {
+        return Completable.fromCallable {
+
+        }.delay(1000, TimeUnit.MILLISECONDS)
     }
 }

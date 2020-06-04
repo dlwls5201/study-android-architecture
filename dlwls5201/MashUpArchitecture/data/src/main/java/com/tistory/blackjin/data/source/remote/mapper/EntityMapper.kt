@@ -1,4 +1,4 @@
-package com.tistory.blackjin.data.mapper
+package com.tistory.blackjin.data.source.remote.mapper
 
 /**
  * Interface for model mappers. It provides helper methods that facilitate

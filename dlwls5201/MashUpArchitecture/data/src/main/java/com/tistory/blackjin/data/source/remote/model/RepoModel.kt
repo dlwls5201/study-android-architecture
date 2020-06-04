@@ -1,9 +1,9 @@
-package com.tistory.blackjin.data.model
+package com.tistory.blackjin.data.source.remote.model
 
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class Repo(
+data class RepoModel(
     @SerializedName("name")
     val name: String,
     @SerializedName("full_name")

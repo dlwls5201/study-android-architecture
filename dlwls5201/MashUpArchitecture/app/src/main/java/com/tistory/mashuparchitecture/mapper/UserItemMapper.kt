@@ -23,4 +23,8 @@ class UserItemMapper(private val context: Context) : Mapper<UserItem, UserEntity
         else
             entity.following.toString()
     )
+
+    override fun mapFromView(item: UserItem): UserEntity {
+        TODO("Not yet implemented")
+    }
 }

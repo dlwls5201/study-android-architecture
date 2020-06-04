@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tistory.mashuparchitecture.R
 import com.tistory.mashuparchitecture.model.RepoItem
-import com.tistory.mashuparchitecture.presentation.repo.RepositoryActivity
 import kotlinx.android.synthetic.main.item_repository.view.*
 
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.RepositoryHolder>() {
@@ -18,16 +17,13 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.RepositoryHolder>() {
 
     private val placeholder = ColorDrawable(Color.GRAY)
 
+    var onItemClick: ((repoItem: RepoItem) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         RepositoryHolder(parent).apply {
             itemView.setOnClickListener {
-
                 val item = items[adapterPosition]
-                RepositoryActivity.startRepositoryActivity(
-                    it.context,
-                    item.owner.ownerName,
-                    item.repoName
-                )
+                onItemClick?.invoke(item)
             }
         }
 

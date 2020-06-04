@@ -52,7 +52,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_star_black"
-                    android:drawableLeft="@drawable/ic_star_black"
                     android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="@color/githubBlack"
                     tools:text="100 Stars" />
@@ -68,6 +67,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tvActivityRepositoryName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,8 +83,7 @@
                 android:layout_marginEnd="5dp"
                 android:text="@string/follower"
                 android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@color/githubBlack"
-                android:textStyle="bold" />
+                android:textColor="@color/githubBlack" />
 
             <TextView
                 android:id="@+id/tvActivityRepositoryFollower"
@@ -101,8 +100,7 @@
                 android:layout_marginEnd="5dp"
                 android:text="@string/following"
                 android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@color/githubBlack"
-                android:textStyle="bold" />
+                android:textColor="@color/githubBlack" />
 
             <TextView
                 android:id="@+id/tvActivityRepositoryFollowing"
@@ -185,6 +183,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="12dp"

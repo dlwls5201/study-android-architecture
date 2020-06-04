@@ -7,9 +7,12 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import com.tistory.blackjin.core.util.Logger
 import com.tistory.blackjin.domain.interactor.usecases.GetReposUsecase
+import com.tistory.blackjin.domain.interactor.usecases.InsertRecentRepoUsecase
 import com.tistory.mashuparchitecture.R
 import com.tistory.mashuparchitecture.mapper.RepoItemMapper
+import com.tistory.mashuparchitecture.presentation.repo.RepositoryActivity
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_search.*
 import org.koin.android.ext.android.inject
@@ -22,9 +25,28 @@ class SearchActivity : AppCompatActivity() {
 
     private lateinit var searchView: SearchView
 
-    private val searchAdapter by lazy { SearchAdapter() }
+    private val searchAdapter by lazy {
+        SearchAdapter().apply {
+            onItemClick = { item ->
+                RepositoryActivity.startRepositoryActivity(
+                    this@SearchActivity,
+                    item.owner.ownerName,
+                    item.repoName
+                )
+
+                insertRecentRepoUsecase.insert(repoItemMapper.mapFromView(item))
+                    .subscribe({
+                        Logger.d("insert success")
+                    }) {
+                        Logger.e("insert error : $it")
+                    }
+            }
+        }
+    }
 
     private val getRepoUsecase: GetReposUsecase by inject()
+
+    private val insertRecentRepoUsecase: InsertRecentRepoUsecase by inject()
 
     private val repoItemMapper: RepoItemMapper by inject()
 

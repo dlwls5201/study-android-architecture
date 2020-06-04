@@ -7,8 +7,9 @@ package com.tistory.mashuparchitecture.mapper
  * @param <V> the view model input type
  * @param <D> the domain model output type
  */
-interface Mapper<out V, in D> {
+interface Mapper<V, D> {
 
     fun mapToView(entity: D): V
 
+    fun mapFromView(item: V): D
 }

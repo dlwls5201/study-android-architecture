@@ -15,7 +15,7 @@ import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import java.util.*
 
-class GetRepoUsecaseTest {
+class GetRepoEntityUsecaseTest {
 
     @Rule
     @JvmField

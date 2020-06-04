@@ -1,7 +1,7 @@
 package com.tistory.blackjin.data.source.remote
 
-import com.tistory.blackjin.data.model.Repo
-import com.tistory.blackjin.data.model.RepoSearchResponse
+import com.tistory.blackjin.data.source.remote.model.RepoModel
+import com.tistory.blackjin.data.source.remote.model.RepoSearchResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -16,5 +16,5 @@ interface RepoApi {
     fun getRepository(
         @Path("owner") ownerLogin: String,
         @Path("name") repoName: String
-    ): Single<Repo>
+    ): Single<RepoModel>
 }

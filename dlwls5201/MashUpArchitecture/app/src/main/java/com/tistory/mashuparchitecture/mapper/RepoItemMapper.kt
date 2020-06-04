@@ -40,4 +40,17 @@ class RepoItemMapper(private val context: Context) : Mapper<RepoItem, RepoEntity
 
         stars = context.resources.getQuantityString(R.plurals.star, entity.stars, entity.stars)
     )
+
+
+    override fun mapFromView(item: RepoItem) = RepoEntity(
+        repoName = item.repoName,
+        owner = RepoEntity.OwnerEntity(
+            ownerName = item.owner.ownerName,
+            ownerUrl = item.owner.ownerUrl
+        ),
+        description = item.description,
+        language = item.language,
+        updatedAt = Date(),
+        stars = 0
+    )
 }
